@@ -1,0 +1,32 @@
+name: TMAS Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  tmas-scan:
+    name: TMAS Repo Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: demo-booking-api
+
+      - name: TMAS Scan
+        uses: trendmicro/tmas-scan-action@v3.3.0
+        with:
+          version: '2'
+          vulnerabilitiesScan: true
+          malwareScan: false
+          secretsScan: true
+          artifact: dir:./demo-booking-api
+          additionalArgs: --region=us-east-1 --evaluatePolicy
+          tmasApiKey: ${{ secrets.TMAS_API_KEY }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
