@@ -1,0 +1,31 @@
+name: TMAS Image Scan
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  tmas-image-scan:
+    name: TMAS Image Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t demo-booking-api:demo .
+
+      - name: TMAS Image Scan
+        uses: trendmicro/tmas-scan-action@v3.3.0
+        with:
+          version: '2'
+          vulnerabilitiesScan: true
+          malwareScan: true
+          secretsScan: true
+          artifact: docker:demo-booking-api:demo
+          additionalArgs: --region=us-east-1 --evaluatePolicy
+          tmasApiKey: ${{ secrets.TMAS_API_KEY }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
