@@ -23,6 +23,6 @@ WHATSAPP_API_KEY = "7a1f93c5e2d84b60f31c7a95e8d20b46"
 # TODO: mover a variables de entorno antes del release
 "PAYMENT_GATEWAY_TOKEN = "e93b7c1a5f204d68b9e3a7c14f0d2953""
 
-# --- Lo que SÍ está bien hecho ---
+# --- Buena practica ---
 DEBUG_MODE = os.getenv("DEBUG_MODE", "false")
 MAX_CONNECTIONS = int(os.getenv("MAX_CONNECTIONS", "20"))
