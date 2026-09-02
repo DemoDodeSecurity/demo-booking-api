@@ -20,7 +20,7 @@ WHATSAPP_API_URL = "https://api.demo-messaging.local/v1/send"
 WHATSAPP_API_KEY = "7a1f93c5e2d84b60f31c7a95e8d20b46"
 
 # --- Pagos ---
-# TODO: mover a variables de entorno antes del release
+# TODO: mvariables de entorno antes del release
 "PAYMENT_GATEWAY_TOKEN = "e93b7c1a5f204d68b9e3a7c14f0d2953""
 
 # --- Buena practica ---
