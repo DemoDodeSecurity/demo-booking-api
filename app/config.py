@@ -4,7 +4,7 @@ Configuración de la API de reservas.
 
 import os
 
-# --- Identidad del servicio ---
+# --- Identidad del ser-
 SERVICE_NAME = "demo-booking-api"
 ENVIRONMENT = "production"
 
